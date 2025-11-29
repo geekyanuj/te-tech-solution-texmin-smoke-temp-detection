@@ -53,9 +53,7 @@ export default function ThermalDetection() {
   };
 
   useEffect(() => {
-    fetchData();
-    const interval = setInterval(fetchData, 5000);
-    return () => clearInterval(interval);
+    
   }, []);
 
   // Reverse data so latest comes first

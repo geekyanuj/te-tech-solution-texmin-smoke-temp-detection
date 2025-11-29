@@ -4,28 +4,16 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import '../assets/custom.css';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
-import { useAppContext } from "../context/AppContext";
 import DateTimeView from "./DateTimeView";
 
 
 export default function Layout() {
 
     const navigate = useNavigate();
-    const { setUser } = useAppContext();
 
 
     const handleLogout = () => {
-        axios.post('http://localhost:5000/api/logout', {}, { withCredentials: true })
-            .then(res => {
-                console.log('Logged out:', res.data);
-                // Optional: clear user context or state
-                setUser(null); // Or however you're tracking logged-in user
-                navigate('/');
-            })
-            .catch(err => {
-                console.error('Logout failed:', err);
-                alert('Failed to logout.');
-            });
+        navigate('/');
     };
 
     return (
@@ -36,7 +24,7 @@ export default function Layout() {
                     <div className="d-flex align-items-center">
                         <img src="/logo.png" alt="TEXMiN Logo" style={{ height: 50, marginRight: 10 }} />
                     </div>
-                    <h5 className="fw-bold m-0 flex-grow-1 ps-4">DASHBOARD</h5>
+                    <h5 className="fw-bold ms-3 flex-grow-1 ps-4">Thermal and Fire Detection System</h5>
                     <div className="d-flex gap-2">
                         <DateTimeView/>
                     </div>
@@ -68,15 +56,6 @@ export default function Layout() {
                         }
                     >
                         Home
-                    </NavLink>
-
-                    <NavLink
-                        to="/dashboard/face"
-                        className={({ isActive }) =>
-                            `btn w-100 mb-3 ${isActive ? 'custom-active' : 'btn-light'}`
-                        }
-                    >
-                        Face Detection
                     </NavLink>
 
                     <NavLink

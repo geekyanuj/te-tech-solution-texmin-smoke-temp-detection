@@ -3,17 +3,10 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { LiaTemperatureHighSolid } from "react-icons/lia";
 import { TbTemperatureCelsius } from "react-icons/tb";
-import { useMqttValue } from "../hooks/useMqttValue";
 
-const topicTemp = "home/temperature";
 
 export default function LiveTemperatureCard() {
-  const temp = useMqttValue(topicTemp, {
-    normalizeFn: (s) => {
-      const n = Number(s);
-      return Number.isFinite(n) ? n : s;
-    },
-  });
+  const temp = 22;
 
   return (
     <Card className="text-center p-3" style={{ backgroundColor: "#C3FFFF" }}>

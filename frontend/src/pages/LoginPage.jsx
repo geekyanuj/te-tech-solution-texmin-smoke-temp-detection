@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from "react-router-dom";
-import { useAppContext } from '../context/AppContext';
 import axios from 'axios';
 
 export default function LoginPage() {
@@ -9,36 +8,37 @@ export default function LoginPage() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const { setUser } = useAppContext();
 
     const handleLogin = () => {
-        if (username && password) {
+        if (username == 'smoke' && password == 'smoke') {
             console.log("Logging in with:", { username, password });
 
-            axios.post('http://localhost:5000/api/login',
-                {
-                    username: username,
-                    password: password
-                },
-                {
-                    withCredentials: true, // Important to allow session cookies
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }
-            )
-                .then(res => {
-                    console.log('Logged in!', res.data);
-                    setUser(username);         // Set user context or state
-                    navigate("/dashboard");    // Redirect to dashboard
-                    console.log("navigated to dashboard");
+            // axios.post('http://localhost:5000/api/login',
+            //     {
+            //         username: username,
+            //         password: password
+            //     },
+            //     {
+            //         withCredentials: true, // Important to allow session cookies
+            //         headers: {
+            //             'Content-Type': 'application/json'
+            //         }
+            //     }
+            // )
+            //     .then(res => {
+            //         console.log('Logged in!', res.data);
+            //         setUser(username);         // Set user context or state
+            //         navigate("/dashboard");    // Redirect to dashboard
+            //         console.log("navigated to dashboard");
 
-                })
-                .catch(err => {
-                    console.error('Login failed', err.response?.data || err.message);
-                    alert('Login failed. Please check your credentials.');
-                });
+            //     })
+            //     .catch(err => {
+            //         console.error('Login failed', err.response?.data || err.message);
+            //         alert('Login failed. Please check your credentials.');
+            //     });
 
+            console.log('Logged in');
+            navigate("/dashboard");    // Redirect to dashboard
         } else {
             alert("Please enter both username and password.");
         }
