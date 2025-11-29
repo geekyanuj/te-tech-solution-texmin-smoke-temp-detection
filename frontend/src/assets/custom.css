@@ -1,0 +1,91 @@
+/* Change switch ON color */
+.form-check-input:checked {
+  background-color: green;
+  border-color: green;
+}
+
+/* Change focus ring when ON */
+.form-check-input:focus:checked {
+  box-shadow: 0 0 0 0.25rem rgba(0, 128, 0, 0.25); /* green shadow */
+}
+
+.custom-active {
+  background-color: #989696;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.custom-active:hover {
+  background-color: #989696 !important;
+}
+
+/* Table css */
+.table-wrapper {
+  background-color: #e0f5f6;
+  padding: 20px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.people-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #e0f5f6;
+  font-family: sans-serif;
+}
+
+.people-table th,
+.people-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.people-table th {
+  background-color: #c0cccc;
+  font-weight: bold;
+}
+
+.photo-cell {
+  width: 40px;
+  height: 40px;
+  background-color: #bff;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.danger-warning{
+  color: red;
+}
+
+
+/* Loader */
+.loader {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      position: relative;
+      animation: rotate 1s linear infinite
+    }
+    .loader::before {
+      content: "";
+      box-sizing: border-box;
+      position: absolute;
+      inset: 0px;
+      border-radius: 50%;
+      border: 5px solid #000000;
+      animation: prixClipFix 2s linear infinite ;
+    }
+
+    @keyframes rotate {
+      100%   {transform: rotate(360deg)}
+    }
+
+    @keyframes prixClipFix {
+        0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+        25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+        50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+        75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+        100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+    }
+   
